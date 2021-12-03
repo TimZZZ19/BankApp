@@ -1,38 +1,71 @@
-.App {
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+
+  /* NOTE This creates the fade in/out anumation */
+  opacity: 100;
+  transition: all 1s;
+}
+
+/* Operation */
+.operation {
+  border-radius: 1rem;
+  padding: 3rem 4rem;
+  color: #333;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+
+.form__input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+  padding: 0.3rem 1rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+}
+
+.form__input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.form__label {
+  font-size: 1.3rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form__btn {
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.form__btn:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.8);
 }

@@ -1,0 +1,9 @@
+.operation--loan {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+.form.form--loan {
+  grid-template-columns: 2.5fr 1fr 2.5fr;
+}
+.form__label--loan {
+  grid-row: 2;
+}
