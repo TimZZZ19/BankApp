@@ -1,22 +1,33 @@
 import "./Movements.css";
+import MovRow from "./MovRow.js";
 
 const Movements = (props) => {
+  const movsAndDates = [];
+  const keys = [];
+
+  // Combine movements and dates
+  for (let i = 0; i < props.currentMovs.length; i++) {
+    movsAndDates[i] = [props.currentMovs[i], props.currentDates[i]];
+  }
+
+  // Generate unique keys
+  const generateKey = () => Math.floor(Math.random() * 1000);
+  for (let i = 0; i < props.currentMovs.length; i++) {
+    let newKey = generateKey();
+    while (keys.includes(newKey)) newKey = generateKey();
+    keys.push(newKey);
+  }
+
   return (
     <div className="movements">
-      <div className="movements__row">
-        <div className="movements__type movements__type--deposit">
-          2 deposit
-        </div>
-        <div className="movements__date">3 days ago</div>
-        <div className="movements__value">4 000€</div>
-      </div>
-      <div className="movements__row">
-        <div className="movements__type movements__type--withdrawal">
-          1 withdrawal
-        </div>
-        <div className="movements__date">24/01/2037</div>
-        <div className="movements__value">-378€</div>
-      </div>
+      {movsAndDates.reverse().map((mov, idx) => (
+        <MovRow
+          key={keys[idx]}
+          mov={mov}
+          currentLocale={props.currentLocale}
+          currentCurrency={props.currentCurrency}
+        ></MovRow>
+      ))}
     </div>
   );
 };
