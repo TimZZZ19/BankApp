@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, Fragment } from "react";
 
 import "./App.css";
 import Navbar from "./components/UI/Navbar";
@@ -276,7 +276,7 @@ function App() {
   };
 
   return (
-    <div>
+    <Fragment>
       <Navbar
         validateInputUser={validateInputUser}
         welcome={welcomeMessage}
@@ -328,7 +328,7 @@ function App() {
           setPinLabel={setPinLabel}
         ></Close>
       </main>
-    </div>
+    </Fragment>
   );
 }
 
